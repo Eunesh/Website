@@ -3,24 +3,41 @@ import { useEffect, useState } from "react";
 import "../GlobalCss/Style.css";
 import "../GlobalCss/util.css";
 import "./Css/Header.css";
+import { Link } from "react-router-dom";
 
-interface propstype {
-  headerTitle1: string;
-  headerTitle2: string;
-  headerTitle3: string;
-  headerTitle4: string;
-  headerTitle5: string;
-}
-
+// interface for Icons
 interface IconPropsType {
   height: string;
   width: string;
 }
 
+// interface for propstye
+interface propsType {
+  textcolor: string;
+}
+
 //Main function
-const Header = (props: propstype) => {
+const Header = (props: propsType) => {
+  // Array for Title
+  const initialTitle: string[] = [
+    "Home",
+    "About us",
+    "Members",
+    "Gallery",
+    "Activity",
+  ];
+
+  // Array for Links or URL for routing
+  const link: string[] = ["/", "/aboutus", "/members", "/gallery", "/activity"];
+
+  // Initializing UseState's
   const [openNavbar, setOpenNavbar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [title, setTitle] = useState(initialTitle); // UseState for title
+  const [links, setLinks] = useState(link); // Use state for  routing links
+
+  console.log(setTitle);
+  console.log(setLinks);
 
   // When Pressed CrossIcon
   const handleCancelNavbar = () => {
@@ -33,9 +50,9 @@ const Header = (props: propstype) => {
     console.log("clicked");
   };
 
+  // When scrolled
   const ChangeBackgroundColor = () => {
     const scrolldistance = window.scrollY;
-    console.log(scrolldistance);
 
     if (scrolldistance === 0) {
       setIsScrolled(false);
@@ -44,9 +61,8 @@ const Header = (props: propstype) => {
     }
   };
 
-  // After scrolling effect
   useEffect(() => {
-    window.addEventListener("scroll", ChangeBackgroundColor), [];
+    window.addEventListener("scroll", ChangeBackgroundColor), []; // When scroll ChangeBackgroundColor function is called
   }, []);
 
   // Icon for Cross
@@ -92,7 +108,6 @@ const Header = (props: propstype) => {
 
   const NavBarMobile = () => {
     return (
-      // <nav class={openNavbar() ? "activeNav" : "navbar"}>
       <nav className="activeNav">
         <div className="container">
           <div className="top_header_navbar">
@@ -100,13 +115,17 @@ const Header = (props: propstype) => {
             <CrossIcon height="0.9em" width="0.9em" />
           </div>
           <div className="Header_section_navbar">
-            <a className="">{props.headerTitle1}</a>
-            <a className="">{props.headerTitle2}</a>
-            <a className="">{props.headerTitle3}</a>
-            <a className="" href="/gallery">
-              {props.headerTitle4}
-            </a>
-            <a className="">{props.headerTitle5}</a>
+            {title.map((title, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={links[index]}
+                  className="Linktag textcolorlight"
+                >
+                  {title}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </nav>
@@ -115,32 +134,36 @@ const Header = (props: propstype) => {
 
   function Body() {
     return (
-      <div className="container sticky">
-        <div
-          //   onScroll={ChangeBackgroundColor}
-          className={
-            isScrolled
-              ? "Header textcolordark boxshadow"
-              : "Header background textcolorlight"
-          }
-        >
+      <div
+        className={
+          isScrolled
+            ? "Header textcolordark boxshadow sticky"
+            : `Header background ${props.textcolor} sticky`
+        }
+      >
+        <div className="container spacebetween padding">
           <a>Logo</a>
           <HambergurMenuIcon height="1em" width="1em" />
-          <div
-            className={
-              isScrolled
-                ? "header_content textcolordark"
-                : "header_content textcolorlight"
-            }
-          >
-            <a>{props.headerTitle1}</a>
-            <a>{props.headerTitle2}</a>
-            <a>{props.headerTitle3}</a>
-            <a>{props.headerTitle4}</a>
-            <a>{props.headerTitle5}</a>
+          <div className="header_content">
+            {title.map((title, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={links[index]}
+                  className={
+                    isScrolled
+                      ? "Linktag textcolordark"
+                      : `Linktag ${props.textcolor} `
+                  }
+                >
+                  {title}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
+      // </div>
     );
   }
 

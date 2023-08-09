@@ -1,0 +1,13 @@
+.paragraph{
+    font-size: larger;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 1px;
+    text-indent: 50px;
+    background-color: var(--clr-light);
+    font-weight: 400;
+    font-family: Raleway,Sans-serif;
+    
+}

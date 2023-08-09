@@ -1,3 +1,10 @@
+.navbar{
+    width: 100dv;
+    border: 1px solid red;
+    height: 8dvh;
+}
+
+
 .Header_section_navbar{
     display: flex;
     flex-direction: column;
@@ -35,16 +42,27 @@
 }
 
 .Header{
-    display: flex;
-    flex-direction: row;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    align-items: center;
-    justify-content: space-between;
-    height: 8dvh;
     background-color: var(--clr-light);
+    height: 10dvh;
+    max-height: 50px;
+    /* border: 1px solid red; */
+   
 }
 
+
+.spacebetween{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.padding{
+    padding: 5px
+}
 .background{
     background-color: transparent;
     border-bottom: 1px solid transparent;
@@ -58,7 +76,7 @@
 
 
 .textcolorlight{
-    color: var(--clr-light);  
+    color: #ffffff ;
 }
 
 .textcolordark{
@@ -67,9 +85,9 @@
 
 .sticky{
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 /*  displaying header_content or title as none when displaying on mobile      */
@@ -105,10 +123,11 @@
 }
 
 
-.header_content > a{
+.Linktag{
     padding: 10px;
     text-decoration: none;
 }
+
 
 .active_header_title{
     background-color: var(--clr-dark);
@@ -121,9 +140,9 @@
 /*  xl */
 @media (min-width: 1024px) {
 
-    .Header{
+    /* .Header{
         justify-content: space-between;
-    }
+    } */
 
 
     .header_content{
@@ -131,9 +150,12 @@
         display: flex;
         flex-direction: row;
         gap:25px;
-        font-size: 0.9em;
-        font-weight: 400;
-        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: Open Sans,system-ui;
+        /* letter-spacing: px; */
+
+
         /* color: var(--clr-light); */
        
     }
@@ -141,7 +163,7 @@
    
     
 
-    .header_content > a:hover{
+    .Linktag:hover{
         /* border: 1px ridge black; */
         background-color: var(--clr-dark);
         color: var(--clr-light);

@@ -1,0 +1,42 @@
+.title_wrapper{
+    /* width: 20dvw;
+    height: 10dvh; */
+   /* border: 1px solid red; */
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+.title_wrapper h1 {
+    color: var(--clr-dark);
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Open Sans,system-ui;
+
+}
+
+
+.Underline{
+    background-color: red;
+    width: 30dvw;
+    /* max-width: 10dvw; */
+    height: 0.8dvh;
+    max-width: 80px;
+}
+
+
+/*  xs  */
+/* @media (min-width: 475px) {
+    .Underline {
+        width: 15dvw; 
+    }
+} */
+
+
+/* @media (min-width: 768px) {
+    .Underline {
+        width: 10dvw;
+        max-width: 80px;
+    }
+} */

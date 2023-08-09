@@ -1,57 +1,12 @@
 import Homepage from "./Pages/Homepage";
+import Gallery from "./Pages/Gallery";
+import { Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <>
-      <Homepage />
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-    </>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/gallery" element={<Gallery />} />
+    </Routes>
   );
 }
 
