@@ -1,8 +1,13 @@
 import { app } from "./index"
+import dotenv from 'dotenv';
 
-const PORT:number = 5000;   // for port 
+dotenv.config({ path: "./.env" });
 
-app.listen(PORT, "localhost",  ()=>{
+const PORT:string|undefined = process.env.PORT; // for port 
+
+
+
+app.listen(PORT,  ()=>{
     console.log(`Server is listining on port ${PORT}`)
     
 })

@@ -6,7 +6,7 @@ export default class AddImage{
             const {animalName} = req.body;
             console.log(animalName);
             res.status(201).json({
-                message: "added OK",
+                message: "added OK I am happy",
             })
             
         }catch(err){
@@ -23,7 +23,7 @@ export default class AddImage{
             const {animalName} = req.body;
             console.log(animalName);
             res.status(201).json({
-                message: "updated OK",
+                message: "updated OK I am Happy",
             })
             
         }catch(err){
