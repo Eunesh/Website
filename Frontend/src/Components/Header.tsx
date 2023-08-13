@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../GlobalCss/Style.css";
 import "../GlobalCss/util.css";
 import "./Css/Header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // interface for Icons
 interface IconPropsType {
@@ -24,11 +24,17 @@ const Header = (props: propsType) => {
     "About us",
     "Members",
     "Gallery",
-    "Activity",
+    "Contact us",
   ];
 
   // Array for Links or URL for routing
-  const link: string[] = ["/", "/aboutus", "/members", "/gallery", "/activity"];
+  const link: string[] = [
+    "/",
+    "/aboutus",
+    "/members",
+    "/gallery",
+    "/contactUs",
+  ];
 
   // Initializing UseState's
   const [openNavbar, setOpenNavbar] = useState<boolean>(false);
@@ -56,7 +62,7 @@ const Header = (props: propsType) => {
 
     if (scrolldistance === 0) {
       setIsScrolled(false);
-    } else if (scrolldistance > 100) {
+    } else if (scrolldistance > 80) {
       setIsScrolled(true);
     }
   };
@@ -117,13 +123,13 @@ const Header = (props: propsType) => {
           <div className="Header_section_navbar">
             {title.map((title, index) => {
               return (
-                <Link
+                <NavLink
                   key={index}
                   to={links[index]}
                   className="Linktag textcolorlight"
                 >
                   {title}
-                </Link>
+                </NavLink>
               );
             })}
           </div>
@@ -141,23 +147,28 @@ const Header = (props: propsType) => {
             : `Header background ${props.textcolor} sticky`
         }
       >
-        <div className="container spacebetween padding">
+        <div className="container spacebetween padding height">
           <a>Logo</a>
           <HambergurMenuIcon height="1em" width="1em" />
           <div className="header_content">
             {title.map((title, index) => {
               return (
-                <Link
+                <NavLink
                   key={index}
                   to={links[index]}
-                  className={
-                    isScrolled
+                  className={({ isActive }) =>
+                    isActive
+                      ? isScrolled
+                        ? "Linktag isActive textcolordard"
+                        : `Linktag isActive ${props.textcolor} `
+                      : isScrolled
                       ? "Linktag textcolordark"
                       : `Linktag ${props.textcolor} `
                   }
+                  // style={({isActive})=>({color: isActive ? })}
                 >
                   {title}
-                </Link>
+                </NavLink>
               );
             })}
           </div>

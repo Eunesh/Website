@@ -10,7 +10,7 @@ const Gallery = () => {
     <>
       <Header textcolor="textcolordark" />
       <Filler />
-      <Title />
+      <Title title="GALLERY" />
       <GalleryThumbnail />
       {/* <GalleryBody /> */}
     </>
