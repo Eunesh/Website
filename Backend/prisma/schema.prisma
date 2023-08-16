@@ -9,3 +9,24 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Event {
+  id           String  @id @default(uuid())
+  Eventname    String
+  ThumbnailImg String
+  imgae        Image[]
+}
+
+model Image {
+  ImageId   String @id @default(uuid())
+  ImageName String
+  event     Event  @relation(fields: [eventid], references: [id])
+  eventid   String
+}
+
+model Members {
+  MembersID     String @id @default(uuid())
+  Members_name  String
+  phone_number  String @unique
+  Members_image String
+}

@@ -1,41 +1,34 @@
 import  {Request, Response} from 'express';
-export default class AddImage{
-
-    async addImage(req:Request, res:Response){
-        try{
-            const {animalName} = req.body;
-            console.log(animalName);
-            res.status(201).json({
-                message: "added OK I am happy",
-            })
-            
-        }catch(err){
-            res.status(500).json({
-                message: "Internal Server Error!"
-              });
-
-        }
-    }
+import { PrismaClient } from '@prisma/client';
 
 
-    async updateImage(req:Request, res:Response){
-        try{
-            const {animalName} = req.body;
-            console.log(animalName);
-            res.status(201).json({
-                message: "updated OK I am Happy",
-            })
-            
-        }catch(err){
-            res.status(500).json({
-                message: "Internal Server Error!"
-              });
 
-        }
+async function AddImages(req:Request, res:Response){
+
+
+    try{
+        const prisma = new PrismaClient();
+        const {Members_name, phone_number, Members_image} = req.body;
+        console.log(Members_name, phone_number, Members_image);
+
+        const Create_members = await prisma.members.create({
+            data: {
+                Members_name,
+                phone_number,
+                Members_image
+            }
+        })
+        res.status(201).json({
+            message: Create_members,
+        })
+        
+    }catch(err){
+        res.status(500).json({
+            message: "Internal Server Error!"
+          });
 
     }
-
-
-    
-
 }
+
+
+export  {AddImages}

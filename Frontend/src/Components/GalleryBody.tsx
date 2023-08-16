@@ -7,7 +7,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 // import Title from "./Title";
 
-const GalleryBody = () => {
+interface propstype {
+  name: string;
+}
+
+const GalleryBody = (props: propstype) => {
   const [photos, setPhotos] = useState([
     img,
     img2,
@@ -31,6 +35,7 @@ const GalleryBody = () => {
         </svg>
       </Link>
       <div className="gallery">
+        <h1>{props.name}</h1>
         {photos.map((imageUrl, index) => (
           <div key={index} className={`gallery__item--${index}`}>
             <img

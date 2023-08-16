@@ -42,9 +42,6 @@ const Header = (props: propsType) => {
   const [title, setTitle] = useState(initialTitle); // UseState for title
   const [links, setLinks] = useState(link); // Use state for  routing links
 
-  console.log(setTitle);
-  console.log(setLinks);
-
   // When Pressed CrossIcon
   const handleCancelNavbar = () => {
     setOpenNavbar((isOpen) => !isOpen);

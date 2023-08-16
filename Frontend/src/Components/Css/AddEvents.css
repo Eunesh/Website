@@ -1,0 +1,123 @@
+/* *{
+  background-color: var(--clr-dark);
+} */
+
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    /* border: 1px solid red; */
+    margin-inline:auto;
+    gap: 10px;
+    /* background-color: var(--clr-dark); */
+    /* margin-left: 100px;
+    margin-right: 100px; */
+   
+}
+
+
+.card__Eventname {
+    border: 1px solid var(--clr-dark);
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 7dvh;
+    width: 60vw;
+    max-width: 400px;
+    color: var(--clr-dark);
+}
+
+
+
+.card__fileSelector{
+    /* border: 1px ridge var(--clr-dark); */
+    color: var(--clr-dark);
+    position: relative;
+    font-size: 0.7rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 60dvw;
+    height: auto;
+    max-width: 200px;
+}
+
+input[type="file"]::file-selector-button {
+    border-radius: 6px;
+    padding: 7px;
+    color: var(--clr-dark);
+    cursor: pointer;
+    background-color: var(--clr-light);
+    font-size: 0.7rem;
+    width: 27dvw;
+    max-width: 100px;
+    
+}
+
+input[type="file"]::before {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 2px;
+    height: 15px;
+    width: 15px;
+    content: "";
+    color: var(--clr-dark);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+  }
+
+
+  input[type="file"]::file-selector-button:hover {
+    background-color: #cfcbcb;
+  }
+
+
+  .AddButton {
+    color: var(--clr-light);
+    border: 1px ridge var(--clr-light);
+    padding: 5px;
+    width: 12vh;
+    background-image: linear-gradient(180deg, #0165fc, #000a19 );
+    border-radius: 5px;
+    max-width: 12vh;
+    
+    transition: background-color 200ms;
+
+  }
+
+
+  .AddButton:active {
+    /* background-image: linear-gradient(180deg, #673bf5, #000a19 ); */
+    filter: drop-shadow(3px 3px 6px  #0165fc);
+  }
+
+  .AddButton:hover {
+    filter: drop-shadow(3px 3px 6px  #0165fc);
+  }
+
+
+
+  .AddContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:10px;
+    /* border: 1px solid red; */
+    align-items: center;
+  }
+
+  .AddEvent_card{
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+.thumbnail_img{
+    width: 10dvw;
+    height: 10dvh;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 5px;
+}
