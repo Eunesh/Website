@@ -29,3 +29,36 @@
   .dropdown-options li:hover {
     background-color: #f0f0f0;
   }
+
+ 
+  .Delete_Button {
+    color: var(--clr-light);
+    border: 1px ridge var(--clr-light);
+    padding: 5px;
+    width: 12vh;
+    background-image: linear-gradient(180deg, #fa1313, #000a19 );
+    border-radius: 5px;
+    max-width: 12vh;
+    
+    transition: background-color 200ms;
+
+  }
+
+
+  .Delete_Button:hover {
+    /* background-image: linear-gradient(180deg, #673bf5, #000a19 ); */
+    filter: drop-shadow(3px 3px 6px  #090101);
+  }
+
+  .Add_Button {
+    color: var(--clr-light);
+    border: 1px ridge var(--clr-light);
+    padding: 5px;
+    width: 12vh;
+    background-image: linear-gradient(180deg, #0165fc, #000a19 );
+    border-radius: 5px;
+    max-width: 12vh;
+    
+    transition: background-color 200ms;
+
+  }

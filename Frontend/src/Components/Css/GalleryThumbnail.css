@@ -44,7 +44,6 @@
     
     .thumbnail__img{
         width: 28dvw;
-        height: 30dvh;
         object-fit: cover;
         max-width: 100%;
         height: auto;

@@ -1,13 +1,9 @@
-import express, { Router} from 'express';
-// import AddImage from '../Controllers/AddImageController';
-import {AddImages} from "../Controllers/AddImageController"
+import express, { Router } from "express";
+import { AddImages } from "../Controllers/AddImageController";
 
-const router:Router = express.Router();
-// const controller = new AddImage(); 
+const router: Router = express.Router();
 
-router.post('/',   AddImages)
+router.post("/", AddImages);
 // router.put('/', controller.updateImage)
 
-
-export {router as addimg}
-;
+export { router as addimg };

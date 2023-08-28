@@ -33,7 +33,7 @@ const Header = (props: propsType) => {
     "/aboutus",
     "/members",
     "/gallery",
-    "/contactUs",
+    "/contactus",
   ];
 
   // Initializing UseState's
@@ -57,7 +57,7 @@ const Header = (props: propsType) => {
   const ChangeBackgroundColor = () => {
     const scrolldistance = window.scrollY;
 
-    if (scrolldistance === 0) {
+    if (scrolldistance < 80) {
       setIsScrolled(false);
     } else if (scrolldistance > 80) {
       setIsScrolled(true);
@@ -76,7 +76,7 @@ const Header = (props: propsType) => {
         strokeWidth="2"
         xmlns="http://www.w3.org/2000/svg"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
         stroke-linejoin="round"
         viewBox="0 0 24 24"
         height={props.height}

@@ -1,0 +1,42 @@
+.card_wrap{
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+   
+
+
+}
+
+
+.member_image{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* overflow: hidden; */
+}
+
+
+
+/*  md */
+@media (min-width: 768px) {
+    .card_wrap {
+        width: 25dvw;
+        max-width: 400px;
+        max-height: 1000px;
+       
+    }
+
+    .member_image{
+        width: 25dvw;
+        object-fit: cover;
+        height: auto;
+        vertical-align: middle;
+        border-radius: 5px;
+
+    }
+}

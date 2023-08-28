@@ -1,6 +1,6 @@
 .navbar{
     width: 100dv;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 8dvh;
 }
 
@@ -45,7 +45,8 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     background-color: var(--clr-light);
-    height: 10dvh;
+    height: 13dvh;
+    z-index: 1000;
     /* transition: all 0.2s 0.1s ease-in-out; */
     /* max-height: 50px; */
     /* border: 1px solid red; */
@@ -73,6 +74,7 @@
     background-color: transparent;
     border-bottom: 1px solid transparent;
 }
+
 
 .boxshadow{
     -webkit-box-shadow: 0 4px 6px -6px #222;

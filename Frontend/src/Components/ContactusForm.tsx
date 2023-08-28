@@ -2,14 +2,14 @@ import "./Css/ContactusForm.css";
 import "../GlobalCss/Style.css";
 import "../GlobalCss/util.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useEffect } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
 
 // zod schema
 const MessageFormSchema = z.object({
   email: z.string().email(),
-  firstname: z.string().nonempty(),
+  firstname: z.string(),
   lastname: z.string().nonempty(),
   message: z.string().min(5).max(50),
 });
@@ -29,10 +29,24 @@ const ContactusForm = () => {
   });
 
   // On submit
-  const onSubmit: SubmitHandler<MessageFormSchemaType> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<MessageFormSchemaType> = async (formData) => {
+    console.log(formData);
+    emailjs
+      .send(
+        "service_fpld5fn",
+        "template_if0y5r9",
+        formData,
+        "6CKgFCXpNHVPXdwfn"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     reset({ firstname: "", lastname: "", email: "", message: "" });
-    console.log(errors);
   };
 
   return (
@@ -48,6 +62,7 @@ const ContactusForm = () => {
               placeholder="First name*"
               {...register("firstname")}
               autoComplete="off"
+              name="first_name"
             />
 
             <input
@@ -57,6 +72,7 @@ const ContactusForm = () => {
               placeholder="Last name*"
               autoComplete="off"
               {...register("lastname")}
+              name="lastname"
             />
           </div>
           {errors.firstname && (
@@ -75,6 +91,7 @@ const ContactusForm = () => {
             placeholder="Your Email*"
             autoComplete="off"
             {...register("email")}
+            name="email"
           ></input>
           {errors.email && (
             <span className="error_messgae">{errors.email.message}</span>
@@ -89,6 +106,7 @@ const ContactusForm = () => {
             placeholder="Message*"
             autoComplete="off"
             {...register("message")}
+            name="message"
           />
           {errors.message && (
             <span className="error_messgae">

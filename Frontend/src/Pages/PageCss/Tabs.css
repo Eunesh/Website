@@ -1,0 +1,28 @@
+.tabs_block{
+    width: 100%;
+    height: 10dvh;
+    /* border: 1px solid var(--clr-dark);
+    border-radius: 5px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+
+
+.members{
+    border-bottom: 3px ridge var(--clr-dark);
+    font-weight: bold;
+    padding: 6px;
+}
+
+
+.font{
+    font-size: small;
+    font-family: Open Sans,system-ui;
+}
+
+
