@@ -56,11 +56,18 @@ const Header = (props: propsType) => {
   // When scrolled
   const ChangeBackgroundColor = () => {
     const scrolldistance = window.scrollY;
+    console.log(scrolldistance);
 
-    if (scrolldistance < 80) {
-      setIsScrolled(false);
-    } else if (scrolldistance > 80) {
+    // if (scrolldistance < 80) {
+    //   setIsScrolled(false);
+    // } else if (scrolldistance > 80) {
+    //   setIsScrolled(true);
+    // }
+
+    if (scrolldistance >= 100) {
       setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
     }
   };
 

@@ -4,9 +4,13 @@ import "./Css/Hero.css";
 
 const Hero = () => {
   return (
-    <div className="Image_wrapper">
-      {/* <img className="Image" src={image} alt="Hero_image" /> */}
-    </div>
+    <>
+      {/* <div className="container"> */}
+      <div className="Image_wrapper">
+        {/* <img className="Image" src={image} alt="Hero_image" /> */}
+        {/* </div> */}
+      </div>
+    </>
   );
 };
 

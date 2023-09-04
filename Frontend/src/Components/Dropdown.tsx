@@ -5,9 +5,15 @@ import http from "../AxiosIInstance/Https";
 interface DropdownProps {
   options: string[];
   method: "Delete" | "Add";
+  photo?: File | null;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, method }) => {
+interface datatype {
+  Eventname: string | null;
+  files: File | null | undefined;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ options, method, photo }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,6 +30,12 @@ const Dropdown: React.FC<DropdownProps> = ({ options, method }) => {
     return res;
   }
 
+  // function for calling APi endpoint with axios for post
+  async function postResponse(url: string, data: datatype) {
+    const res = await http.post(url, data);
+    return res;
+  }
+
   async function DeleteEvents() {
     try {
       const response = await DeleteResponse(`/deleteEvent/${selectedOption}`);
@@ -33,9 +45,14 @@ const Dropdown: React.FC<DropdownProps> = ({ options, method }) => {
     }
   }
 
-  async function AddEvents() {
+  async function AddImage() {
     try {
-      alert("Event Added ok ok for fun");
+      const eventname = selectedOption;
+      const data = { Eventname: eventname, files: photo };
+      console.log(eventname);
+      const res = await postResponse("/addImg", data);
+      console.log(res);
+      alert("Image Added");
     } catch (err) {
       console.log(err);
     }
@@ -60,7 +77,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, method }) => {
           Delete
         </button>
       ) : (
-        <button onClick={AddEvents} className={`Add_Button`}>
+        <button onClick={AddImage} className={`Add_Button`}>
           ADD
         </button>
       )}

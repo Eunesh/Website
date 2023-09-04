@@ -13,7 +13,7 @@ const DeleteEvents = () => {
   // DropEvents name useState
   const [eventname, setEventname] = useState([]);
 
-  // function for calling APi endpoint with axios for get
+  // function for calling APi endpoint with axios to get
   async function getResponse(url: string) {
     const res = await http.get(url);
     return res;

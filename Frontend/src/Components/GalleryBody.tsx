@@ -1,26 +1,32 @@
-import img from "./Images/Hero.jpg";
-import img2 from "./Images/Hero2.jpg";
 import "./Css/GalleryBody.css";
 import "../GlobalCss/Style.css";
 import "../GlobalCss/util.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 // import Title from "./Title";
 
 interface propstype {
   name: string;
+  ImageName: [];
+}
+
+interface imageType {
+  ImageId: string;
+  ImageName: string;
+  eventid: string;
 }
 
 const GalleryBody = (props: propstype) => {
-  const [photos, setPhotos] = useState([
-    img,
-    img2,
-    img2,
-    img2,
-    img2,
-    img2,
-    img2,
-  ]);
+  // const [photos, setPhotos] = useState([
+  //   props.ImageName,
+  //   props.ImageName,
+  //   props.ImageName,
+  // ]);
+
+  const Imagename = props.ImageName;
+  // console.log(props.ImageName);
+  // const Image = props.ImageName.map((data: imageType) => {
+  //   return data.ImageName;
+  // });
 
   return (
     <div className="container">
@@ -36,10 +42,10 @@ const GalleryBody = (props: propstype) => {
       </Link>
       <div className="gallery">
         <h1>{props.name}</h1>
-        {photos.map((imageUrl, index) => (
+        {Imagename.map((data: imageType, index) => (
           <div key={index} className={`gallery__item--${index}`}>
             <img
-              src={imageUrl}
+              src={`http://localhost:5000/images/${data.ImageName}`}
               className="gallery__img"
               alt={`Image ${index}`}
             />

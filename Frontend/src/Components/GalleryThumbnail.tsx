@@ -53,27 +53,26 @@ const GalleryThumbnail = () => {
     getEvents();
   }, []);
 
-  // if data is not fatched from API then it show loading spinner
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className="container">
-      <div className="thumbnail__item">
-        {photos.map((photo, index) => (
-          <div className="thumbnail" key={index}>
-            <Link to={`/gallery/${description[index]}`}>
-              <img
-                src={`http://localhost:5000/images/${photo}`}
-                className="thumbnail__img"
-                alt={`Thumbnail Img ${index}`}
-                loading="lazy"
-              />
-            </Link>
-            <p className="description">{description[index]}</p>
-          </div>
-        ))}
+      <div className="thumbnail_wrappper">
+        <div className="thumbnail__item">
+          {photos.map((photo, index) => (
+            <div className="thumbnail" key={index}>
+              <Link to={`/gallery/${description[index]}`}>
+                <img
+                  src={`http://localhost:5000/images/${photo}`}
+                  className="thumbnail__img"
+                  alt={`Thumbnail Img ${index}`}
+                  loading="lazy"
+                />
+              </Link>
+              <p className="description">{description[index]}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

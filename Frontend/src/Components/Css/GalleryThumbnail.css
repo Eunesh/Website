@@ -33,6 +33,18 @@
     align-items: center;
 }
 
+.thumbnail_wrappper{
+    width: inherit;
+    height: inherit;
+    background-color: #c5d8c5;
+    border-radius: 0 0 60px 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
 
 /*  md */
 @media (min-width: 768px) {
@@ -43,10 +55,11 @@
     }
     
     .thumbnail__img{
-        width: 28dvw;
+        width: 20dvw;
+        height: 60dvh;
+
         object-fit: cover;
         max-width: 100%;
-        height: auto;
         vertical-align: middle;
         border-radius: 5px;
     }

@@ -8,14 +8,23 @@ import http from "./AxiosIInstance/Https";
 import Members from "./Pages/Members";
 import AdminImage from "./Pages/AdminImage";
 import { useState, useEffect } from "react";
+import Spinner from "./Components/Spinner";
 
 interface ResType {
   Eventname: string;
   ThumbnailImg: string;
+  imgae: [];
+}
+
+interface imageType {
+  ImageId: string;
+  ImageName: string;
+  eventid: string;
 }
 
 function App() {
   const [Event, setEvent] = useState([]);
+  const [galleryimage, setGalleryImage] = useState([]);
   // function for calling APi endpoint with axios
   async function Response(url: string) {
     const res = await http.get(url);
@@ -23,17 +32,31 @@ function App() {
   }
 
   async function getEvents() {
-    const res = await Response("/getEvent");
-    const data = res.data;
-    const eventsname = data.map((d: ResType) => {
-      return d.Eventname;
-    });
-    setEvent(eventsname);
+    try {
+      const res = await Response("/getEvent");
+      const data = res.data;
+      const eventsname = data.map((d: ResType) => {
+        return d.Eventname;
+      });
+
+      const galleryimage = data.map((d: ResType) => {
+        return d.imgae;
+      });
+      setGalleryImage(galleryimage);
+      setEvent(eventsname);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
     getEvents();
   }, []);
+
+  // const imageName = galleryimage.map((d: imageType, index) => {
+  //   return d[index];
+  // });
+  console.log(galleryimage);
 
   return (
     <Routes>
@@ -43,7 +66,9 @@ function App() {
         return (
           <Route
             path={`/gallery/${event}`}
-            element={<GalleryBody name={event} />}
+            element={
+              <GalleryBody name={event} ImageName={galleryimage[index]} />
+            }
             key={index}
           />
         );

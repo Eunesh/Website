@@ -1,56 +1,60 @@
-import "../GlobalCss/util.css";
-import "../GlobalCss/Style.css";
-import "./Css/AddEvents.css";
-import { useState } from "react";
-import http from "../AxiosIInstance/Https";
 import Dropdown from "./Dropdown";
+import { useState, useEffect } from "react";
+import http from "../AxiosIInstance/Https";
 
-interface imagetype {
-  image: string;
-}
-
-interface datatype {
-  Imagename: string;
-  files: File | null;
+interface ResType {
+  Eventname: string;
+  ThumbnailImg: string;
 }
 
 const AddImage = () => {
-  const [photo, setPhoto] = useState<File | null>(null); // Use State for Image
+  // DropEvents name useState
+  const [eventname, setEventname] = useState([]);
+  const [image, setImage] = useState<File | null>(null); // Use State for Image
+
+  // function for calling APi endpoint with axios to get
+  async function getResponse(url: string) {
+    const res = await http.get(url);
+    return res;
+  }
 
   // For Stroing image on SetImage UseState
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const image = e.target.files ? e.target.files[0] : null;
-    setPhoto(image ? image : null);
+    setImage(image ? image : null);
   };
 
-  // function for calling APi endpoint with axios for post
-  //   async function postResponse(url: string, data: datatype) {
-  //     const res = await http.post(url, data);
-  //     return res;
-  //   }
+  // function for calling getEvents name
+  const getEvent = async () => {
+    try {
+      const res = await getResponse("/getEvent");
+      const data = res.data;
+      const eventsname = data.map((d: ResType) => {
+        return d.Eventname;
+      });
+      setEventname(eventsname);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // use effect for calling function
+  useEffect(() => {
+    getEvent();
+  }, []);
 
   return (
-    <form className="">
-      <div className="addImage_wrapper">
-        <div className="AddImage_card">
-          <h1>Add Image</h1>
-          <div className="AddContainer">
-            <input
-              className="card__fileSelector"
-              name="Image"
-              placeholder="Image"
-              type="file"
-              onChange={handleImage}
-            />
-            <Dropdown options={["joke", "Joker"]} method="Delete" />
-            <img
-              className="thumbnail_img"
-              src={photo === null ? "" : URL.createObjectURL(photo)}
-            />
-          </div>
-        </div>
-      </div>
-    </form>
+    <>
+      <div>AddImage</div>
+      <input
+        className="card__fileSelector"
+        name="Eventthumbnail"
+        placeholder="Event Thumbnail"
+        type="file"
+        onChange={handleImage}
+      />
+      <Dropdown options={eventname} method="Add" photo={image} />
+    </>
   );
 };
 
