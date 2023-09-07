@@ -25,6 +25,18 @@
 
 }
 
+.flex_column{
+    display: flex;
+    flex-direction: column;
+    gap:15px
+}
+
+.Icon_section{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .text{
     font-size: 30px;
     line-height: 1;
@@ -43,8 +55,83 @@
     background-color: var(--clr-light);
     border-radius: 20px;
     height: 80dvh;
-    padding: 56px;
+    padding: 20px;
+}
 
+.titile_font{
+    font-size: 21px;
+    line-height: 1;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+    color: var(--clr-dark)
+
+}
+
+
+.visible_card_1 {
+    transform: translateX(-100%);
+    transition: transform 300ms ease 0s;
+}
+
+
+.visible_card_2 {
+    transform: translateX(-200%);
+    transition: transform 300ms ease 0s;
+}
+.visible_card_3 {
+    transform: translateX(-300%);
+    transition: transform 300ms ease 0s;
+}
+
+.visible_card_4 {
+    transform: translateX(-400%);
+    transition: transform 300ms ease 0s;
+}
+
+
+.backscroll_card_1{
+    transform: translateX(-300%);
+    transition: transform 300ms ease 0s;
+
+}
+
+.backscroll_card_2{
+    transform: translateX(-200%);
+    transition: transform 300ms ease 0s;
+
+}
+
+.backscroll_card_3{
+    transform: translateX(-100%);
+    transition:transform 300ms ease 0s;
+}
+
+.backscroll_card_4{
+    transform: translateX(0%);
+    transition: transform 300ms ease 0s;
+}
+
+
+
+
+
+.Icon{
+    fill: var(--clr-dark);
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.Icon:hover{
+    background-color: var(--clr-dark);
+    fill: var(--clr-light);
+
+}
+
+/*  xs  */
+@media (min-width: 475px) {
+    
 }
 
  /* sm  */
@@ -56,6 +143,11 @@
 }
 
 /*  md */
+@media (min-width: 768px) {
+}
+
+
+/*  lg */
 @media (min-width: 1024px) {
     .objective{
         flex-direction: row;
@@ -64,11 +156,30 @@
     }
 
    .card_objective{
-    width: 40dvw;
-    height: 300px;
-    max-width: 400px;
+    width: 45dvw;
+    height: 330px;
+    max-width: 450px;
    }
 
+   .titile_font{
+    font-size: 24px;
+}
+
+.card_objective{
+    padding: 56px;
+}
+
+}
+
+/*  xl */
+@media (min-width: 1280px) {
+    
+}
+
+
+/*  2xl  */
+@media (min-width: 1536px) {
+   
 }
 
 
