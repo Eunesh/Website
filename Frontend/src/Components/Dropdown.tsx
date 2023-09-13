@@ -22,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, method, photo }) => {
     setIsOpen(false);
   };
 
-  console.log("Re render");
+  console.log(selectedOption);
 
   // function for calling APi endpoint with axios for post
   async function DeleteResponse(url: string) {

@@ -8,7 +8,9 @@ import http from "./AxiosIInstance/Https";
 import Members from "./Pages/Members";
 import AdminImage from "./Pages/AdminImage";
 import { useState, useEffect } from "react";
-import Spinner from "./Components/Spinner";
+// import {
+//   ClerkProvider,
+// } from "@clerk/clerk-react";
 
 interface ResType {
   Eventname: string;
@@ -16,15 +18,22 @@ interface ResType {
   imgae: [];
 }
 
-interface imageType {
-  ImageId: string;
-  ImageName: string;
-  eventid: string;
-}
+// interface imageType {
+//   ImageId: string;
+//   ImageName: string;
+//   eventid: string;
+// }
 
 function App() {
   const [Event, setEvent] = useState([]);
   const [galleryimage, setGalleryImage] = useState([]);
+
+  if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key");
+  }
+
+  const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
   // function for calling APi endpoint with axios
   async function Response(url: string) {
     const res = await http.get(url);
