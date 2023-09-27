@@ -1,11 +1,15 @@
 import AddImage from "../Components/AddImage";
+import Sidebar from "../Components/Sidebar";
 import "../Components/Css/addImage.css";
 
 const AdminImage = () => {
   return (
-    <div className="card">
-      <AddImage />
-    </div>
+    <>
+      <Sidebar />
+      <div className="card">
+        <AddImage />
+      </div>
+    </>
   );
 };
 

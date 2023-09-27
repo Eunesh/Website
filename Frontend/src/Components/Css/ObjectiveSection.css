@@ -56,6 +56,7 @@
     border-radius: 20px;
     height: 80dvh;
     padding: 20px;
+    max-height: 400px;
 }
 
 .titile_font{

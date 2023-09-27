@@ -2,17 +2,16 @@ import "./Css/Paragraph.css";
 import "../GlobalCss/Style.css";
 import "../GlobalCss/util.css";
 
-interface propstype {
-  paragraph: string;
-}
+// interface propstype {
+//   paragraph: string;
+// }
 
-const Paragraph = (props: propstype) => {
+const Paragraph = ({ children }) => {
   return (
     <div>
       <p className="container paragraph">
-        {props.paragraph}
+        {children}
         <br />
-        <a>Read More</a>
       </p>
     </div>
   );

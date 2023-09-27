@@ -9,7 +9,7 @@ const Gallery = () => {
   return (
     <>
       <Header textcolor="textcolordark" />
-      <Filler />
+      <Filler height="fillersmall" />
       <Title title="GALLERY" />
       <GalleryThumbnail />
       {/* <GalleryBody /> */}

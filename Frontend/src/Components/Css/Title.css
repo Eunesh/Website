@@ -20,7 +20,6 @@
 .Underline{
     background-color: red;
     width: 30dvw;
-    /* max-width: 10dvw; */
     height: 0.8dvh;
     max-width: 80px;
 }

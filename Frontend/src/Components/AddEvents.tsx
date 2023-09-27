@@ -3,6 +3,7 @@
 import "../GlobalCss/util.css";
 import "../GlobalCss/Style.css";
 import "./Css/AddEvents.css";
+import Sidebar from "./Sidebar";
 import { useState } from "react";
 import http from "../AxiosIInstance/Https";
 
@@ -63,37 +64,40 @@ const AddEvents = () => {
   };
 
   return (
-    <form className="" onSubmit={handleSubmit}>
-      <div className="addEvent_wrapper">
-        <div className="AddEvent_card">
-          <h1>Add Events</h1>
-          <input
-            className="card__Eventname"
-            placeholder="Event Name"
-            type="text"
-            name="event"
-            autoComplete="off"
-            onChange={handleChange}
-          />
-          <div className="AddContainer">
+    <>
+      <Sidebar />
+      <form className="" onSubmit={handleSubmit}>
+        <div className="addEvent_wrapper">
+          <div className="AddEvent_card">
+            <h1>Add Events</h1>
             <input
-              className="card__fileSelector"
-              name="Eventthumbnail"
-              placeholder="Event Thumbnail"
-              type="file"
-              onChange={handleImage}
+              className="card__Eventname"
+              placeholder="Event Name"
+              type="text"
+              name="event"
+              autoComplete="off"
+              onChange={handleChange}
             />
-            <button className="AddButton" type="submit">
-              Add
-            </button>
-            <img
-              className="thumbnail_img"
-              src={image === null ? "" : URL.createObjectURL(image)}
-            />
+            <div className="AddContainer">
+              <input
+                className="card__fileSelector"
+                name="Eventthumbnail"
+                placeholder="Event Thumbnail"
+                type="file"
+                onChange={handleImage}
+              />
+              <button className="AddButton" type="submit">
+                Add
+              </button>
+              <img
+                className="thumbnail_img"
+                src={image === null ? "" : URL.createObjectURL(image)}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 

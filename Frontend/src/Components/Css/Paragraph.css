@@ -1,13 +1,27 @@
 .paragraph{
     font-size: larger;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
     letter-spacing: 1px;
-    text-indent: 50px;
     background-color: var(--clr-light);
     font-weight: 400;
     font-family: Raleway,Sans-serif;
     
+}
+
+
+.LargePadding{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.paragraph_wrapper{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;;
+    align-items: center;
+    justify-content: center;
 }

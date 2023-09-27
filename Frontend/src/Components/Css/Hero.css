@@ -15,6 +15,27 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100dvh;
+    height: 690px;
     width: inherit;
 }
+
+
+/*  xl */
+@media (min-width: 1280px) {
+    .Image_wrapper{
+        height: 800px;
+    }
+}
+
+/*  2xl  */
+@media (min-width: 1536px) {
+    .Image_wrapper {
+        height: 1200px;
+    }
+}
+
+
+
+
+
+

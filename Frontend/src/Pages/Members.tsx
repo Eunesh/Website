@@ -23,7 +23,7 @@ const Members = () => {
   return (
     <>
       <Header textcolor="textcolordark" />
-      <Filler />
+      <Filler height="fillersmall" />
       <div className="container">
         <div className="tabs_block">
           <div

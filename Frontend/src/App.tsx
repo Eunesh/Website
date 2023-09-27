@@ -8,9 +8,9 @@ import http from "./AxiosIInstance/Https";
 import Members from "./Pages/Members";
 import AdminImage from "./Pages/AdminImage";
 import { useState, useEffect } from "react";
-// import {
-//   ClerkProvider,
-// } from "@clerk/clerk-react";
+import Admin from "./Pages/Admin";
+import Admindashboard from "./Pages/Admindashboard";
+import Aboutus from "./Pages/Aboutus";
 
 interface ResType {
   Eventname: string;
@@ -18,21 +18,9 @@ interface ResType {
   imgae: [];
 }
 
-// interface imageType {
-//   ImageId: string;
-//   ImageName: string;
-//   eventid: string;
-// }
-
 function App() {
   const [Event, setEvent] = useState([]);
   const [galleryimage, setGalleryImage] = useState([]);
-
-  if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
-    throw new Error("Missing Publishable Key");
-  }
-
-  const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
   // function for calling APi endpoint with axios
   async function Response(url: string) {
@@ -87,6 +75,9 @@ function App() {
       <Route path="/addevent" element={<Events />} />
       <Route path="/members" element={<Members />} />
       <Route path="/addimage" element={<AdminImage />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/admindashboard" element={<Admindashboard />} />
+      <Route path="/aboutus" element={<Aboutus />} />
     </Routes>
   );
 }

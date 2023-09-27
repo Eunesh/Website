@@ -1,0 +1,122 @@
+
+    .Aboutus_Img{
+        object-fit: cover;
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        border-radius: 5px;
+        height: 600px;
+        width: 100%;
+        border-radius: 25px;
+
+    }
+
+    
+
+    .Aboutus_navbar_wrapper{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 80px;
+        background-color: #b3ccb3;
+      
+    }
+
+
+    .nav_title{
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 8.5px;
+        font-weight: 600;
+        font-family: Open Sans,system-ui;
+        position: relative;
+    }
+
+    .nav_title::after{
+      content: '';
+      position: absolute;
+      width: 40px;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--clr-dark);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .nav_title:hover:after{
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+
+
+
+
+    .underline{
+        background-color: var(--clr-dark);
+        width: 40px;
+        height: 4px;
+    }
+
+    .textbold{
+        font-weight: bolder;
+    }
+
+
+    
+/*  xs  */
+@media (min-width: 475px) {
+  .nav_title{
+    font-size: 10px;
+  }
+
+  .underline{
+    width: 50px;
+  }
+}
+
+
+/*  sm  */
+@media (min-width: 640px) {
+    .nav_title{
+        font-size: 12px;
+      }
+    
+      .underline{
+        width: 60px;
+      }
+    
+    
+}
+
+
+/*  lg  */
+@media (min-width: 1024px) {
+
+    .nav_title{
+        font-size: 14px;
+      }
+    
+      .underline{
+        width: 70px;
+      }
+   
+}
+
+
+/*  2xl  */
+@media (min-width: 1536px) {
+    .nav_title{
+        font-size: 18px;
+      }
+    
+      .underline{
+        width: 86px;
+      }
+   
+}
