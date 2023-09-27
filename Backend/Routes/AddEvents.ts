@@ -1,11 +1,11 @@
-import express, { Router} from 'express';
-import upload from '../Multer/Multer';
-const router:Router = express.Router();
+import express, { Router } from "express";
+import upload from "../Multer/Multer";
+const router: Router = express.Router();
 
-import { AddEvents } from '../Controllers/AddEventControllers';
+import { AdminAuthorization } from "../Middleware/AdminAuth";
 
+import { AddEvents } from "../Controllers/AddEventControllers";
 
-router.post('/', upload.single('files'), AddEvents);
+router.post("/", AdminAuthorization, upload.single("files"), AddEvents);
 
-
-export {router as Addevent}
+export { router as Addevent };

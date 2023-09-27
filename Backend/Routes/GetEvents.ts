@@ -1,8 +1,7 @@
-import express, { Router} from 'express';
-const router:Router = express.Router();
-import { GetEvent } from '../Controllers/GetEventController';
+import express, { Router } from "express";
+const router: Router = express.Router();
+import { GetEvent } from "../Controllers/GetEventController";
 
-router.get('/', GetEvent);
+router.get("/", GetEvent);
 
-
-export {router as getEvent}
+export { router as getEvent };

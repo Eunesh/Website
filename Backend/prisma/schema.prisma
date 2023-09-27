@@ -30,3 +30,19 @@ model Members {
   phone_number  String @unique
   Members_image String
 }
+
+model Admin {
+  AdminID       String  @id @default(uuid())
+  AdminUsername String
+  password      String
+  tokens        Token[]
+}
+
+model Token {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  Admintoken   String
+  Admin        Admin?   @relation(fields: [adminAdminID], references: [AdminID])
+  adminAdminID String?
+}

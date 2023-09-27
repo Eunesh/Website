@@ -1,38 +1,23 @@
 import { Request, Response } from "express";
-import { PrismaClient, Image } from "@prisma/client";
+import { prisma } from "../DB/Prisma";
 
-const prisma = new PrismaClient();
+import { Create } from "../Communicator/Create";
 
-interface datatype {
-  ImageName: string;
-  eventid: string;
-}
-
-// Function to create new Event in database
-async function createImage(data: datatype): Promise<Image> {
-  const newEvent = await prisma.image.create({
-    data,
-  });
-
-  return newEvent;
-}
+const create = new Create(prisma);
 
 async function AddImages(req: Request, res: Response) {
   try {
-    const { eventname, ImageName } = req.body;
-    // const ImageName = req.file ? req.file.filename : "image not found";
-    console.log(eventname);
-    // console.log(Image);
+    const { Eventname } = req.body;
+    const ImageName = req.file ? req.file.filename : "Image not found";
 
     const event = await prisma.event.findFirst({
       where: {
-        Eventname: eventname,
+        Eventname: Eventname,
       },
     });
     const eventid = event ? event.id : "null";
-    console.log(eventid);
 
-    const response = await createImage({
+    const response = await create.createImage({
       ImageName,
       eventid,
     });
